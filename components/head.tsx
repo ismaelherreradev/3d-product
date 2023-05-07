@@ -9,32 +9,17 @@ import Image from "next/image";
 
 import threejs from "@/public/threejs.png";
 import { Button } from "./ui/button";
-import { getContrastingColor } from "@/config/helpers";
+import { generateStyle } from "@/config/helpers";
 
 export default function Head() {
   const snap = useSnapshot(state);
-
-  const generateStyle = (type: string) => {
-    if (type === "filled") {
-      return {
-        backgroundColor: snap.color,
-        color: getContrastingColor(snap.color),
-      };
-    } else if (type === "outline") {
-      return {
-        borderWidth: "1px",
-        borderColor: snap.color,
-        color: snap.color,
-      };
-    }
-  };
 
   return (
     <AnimatePresence>
       {snap.intro && (
         <motion.section className="home" {...slideAnimation("left")}>
           <motion.header {...slideAnimation("down")}>
-            <Image src={threejs} alt="logo" className="w-8 h-8 object-contain" />
+            <Image src={threejs} alt="logo" priority className="w-8 h-8 object-contain" />
           </motion.header>
           <motion.div className="home-content" {...headContainerAnimation}>
             <motion.div {...headTextAnimation}>
@@ -49,7 +34,7 @@ export default function Head() {
               </p>
 
               <Button
-                style={generateStyle("filled")}
+                style={generateStyle("filled", snap)}
                 onClick={() => (state.intro = false)}
                 className="w-fit px-4 py-2.5 font-bold text-sm"
               >

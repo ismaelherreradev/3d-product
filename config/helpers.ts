@@ -32,3 +32,18 @@ export const getContrastingColor = (color: string) => {
   // Return black or white depending on the brightness
   return brightness > 128 ? "black" : "white";
 };
+
+export const generateStyle = (type: string, snap: { color: string }) => {
+  if (type === "filled") {
+    return {
+      backgroundColor: snap.color,
+      color: getContrastingColor(snap.color),
+    };
+  } else if (type === "outline") {
+    return {
+      borderWidth: "1px",
+      borderColor: snap.color,
+      color: snap.color,
+    };
+  }
+};
