@@ -1,7 +1,10 @@
+import Canvas from "@/canvas";
+import Head from "@/components/head";
+
 export default function Home() {
   return (
-    <main>
-      <h1 className="head-text">ThreeJS</h1>
+    <main className="app transition-all ease-in">
+      <Head />
     </main>
   );
 }
