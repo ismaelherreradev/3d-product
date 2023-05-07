@@ -8,9 +8,26 @@ import { useSnapshot } from "valtio";
 import Image from "next/image";
 
 import threejs from "@/public/threejs.png";
+import { Button } from "./ui/button";
+import { getContrastingColor } from "@/config/helpers";
 
 export default function Head() {
   const snap = useSnapshot(state);
+
+  const generateStyle = (type: string) => {
+    if (type === "filled") {
+      return {
+        backgroundColor: snap.color,
+        color: getContrastingColor(snap.color),
+      };
+    } else if (type === "outline") {
+      return {
+        borderWidth: "1px",
+        borderColor: snap.color,
+        color: snap.color,
+      };
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -30,6 +47,14 @@ export default function Head() {
                 Create your unique and exclusive shirt with our brand-new 3D customization tool.{" "}
                 <strong>Unleash your imagination</strong> and define your own style.
               </p>
+
+              <Button
+                style={generateStyle("filled")}
+                onClick={() => (state.intro = false)}
+                className="w-fit px-4 py-2.5 font-bold text-sm"
+              >
+                Custumize It
+              </Button>
             </motion.div>
           </motion.div>
         </motion.section>
