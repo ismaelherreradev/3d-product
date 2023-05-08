@@ -18,7 +18,7 @@ export default function OpengraphImage() {
           style={{
             height: "500px",
           }}
-          src="/og.png"
+          src="https://cdn.sanity.io/images/8qnlzo4s/preview/051b9f603f7fec9074643c719d2d363846a44aba-2600x1543.png"
           alt="Servicios"
         />
       </div>
