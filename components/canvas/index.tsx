@@ -1,10 +1,10 @@
 "use client";
+import { Center, Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Environment, Center } from "@react-three/drei";
 
-import Shirt from "./shirt";
-import CameraRing from "./camera-ring";
 import Backdrop from "./backdrop";
+import CameraRing from "./camera-ring";
+import Shirt from "./shirt";
 
 export default function CanvasModel() {
   return (
@@ -16,7 +16,6 @@ export default function CanvasModel() {
     >
       <ambientLight intensity={0.5} />
       <Environment preset="city" />
-
       <CameraRing>
         <Backdrop />
         <Center>

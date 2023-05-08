@@ -1,5 +1,6 @@
 import CanvasModel from "@/components/canvas";
 import Customizer from "@/components/customizer";
+
 import Head from "@/components/head";
 import { Metadata } from "next";
 

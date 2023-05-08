@@ -20,6 +20,7 @@ import config from "@/config/config";
 import { useSnapshot } from "valtio";
 import Tab from "./tab";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 export default function Customizer() {
   const snap = useSnapshot(state);
@@ -157,6 +158,9 @@ export default function Customizer() {
                 handleClick={() => handleActiveFilterTab(tab.name)}
               />
             ))}
+            <button className="download-btn" onClick={downloadCanvasToImage}>
+              <Image src={download} alt="download_image" className="w-3/5 h-3/5 object-contain" />
+            </button>
           </motion.div>
         </>
       )}
